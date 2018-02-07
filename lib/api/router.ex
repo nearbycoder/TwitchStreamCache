@@ -7,8 +7,8 @@ defmodule Twitch.Router do
     end
 
     get ":twitch_id" do
-      {:ok, data} = TwitchStatusStore.get(params[:twitch_id])
-
+      {:ok, data} = TwitchStatusStore.get("#{params[:twitch_id]}")
+      
       conn
       |> json(%{status: "ok", data: data["data"]})
     end
