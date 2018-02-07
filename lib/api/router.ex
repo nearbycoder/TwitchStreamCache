@@ -1,6 +1,8 @@
 defmodule Twitch.Router do
   use Maru.Router
 
+  plug Corsica, origins: "*"
+
   namespace :twitch do
     params do
       optional :twitch_id, type: String
